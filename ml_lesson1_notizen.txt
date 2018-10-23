@@ -1,0 +1,76 @@
+fasti ML 1 Notizen
+
+Worterbuch:
+-eda - exploratory data analysis : grundsätzlich ob du dir die daten anschaust bevor du anfängst model zu trenieren, in Academic Books steht, dass es sicht nicht empfehlt damit man nicht falsche Annahmen tirfft und dann wird das Model overfiting
+-overfiting - ist ein Model der ist gut für inputs aus Training Set, ist aber nicht gut für input aus Validation Set
+-Dession Trees
+	random forest
+		-universal ML for predicton
+		-genereal - es overfit nicht
+		  -	
+c-oncepts of dimensioality
+	- more 
+-Validataion Set - für prediktions für Daten die bilden ablauf im zeit müssen Validation und Test Set unterschiedliche Values sein.
+-Test set -
+-Hyperparameters - tuning
+-"one hot encoding" vs "textValues into categorical Values "
+Statistic:
+-mean squerd error
+-lynear regresion
+-bagging:
+-Prediction
+	continues Varibalen - Regression (zB.: preis )
+		generiert contiunes dependet variable, ist nicht gleich als linearRegression
+	categorical Variables - Classifier
+-r2=1-SSres/SStot --> was ist die Relation zwischen meinem Model und "naiv mean Model"
+	r2 = 0,98 ist sehr gute Model
+	wenn r2 < 0 dann ist mein Model schlimmer als "naiv mean Model"
+-naiv mean Model = sum (Y-Yavg) - summe von substraction von Wert und avg von allen Werten
+-pep 8 - Style guide for Python code
+----
+Bash
+----
+wc -l fileName : anzahl Zeilen
+head filename : ersten 5 Zeilen aus dem File 
+
+----------
+python 3.6
+----------
+panda:
+panda_frame = pd.read_csv(pfad,low_memmory=false,parse_date['columname'])
+panda_frame.tail() : zeigt paar letzten Zeilen aus dem File
+panda_frame.tail().transpose() : zeigt zeilen und spalten ausgetauscht
+panda_frame.drop('columnname',axis1) : entfern die spalte aus panda Frame
+panda_frame.to_feather('pfad') : speichert den panda_frame auf disk genau so wie es im RAM ist, speichern und laden ist deswegen extrem schnell
+
+panda_frame.columntname.dt - zugriff auf alle mentoden von dateTime,Clumnname muss beim import als DateTime geparst werden
+panda_frame.columnname.cat.categories - listet die distincte Value Strings für diese Spalte
+panda_frame.columnname.cat.codes . listet die gemapten numbers für urspunglichen Strings
+
+
+sklearn - machineLearning Library - sehr gut
+
+fastai:
+train_cats(panda_frame) - macht aus allen string spalten eine numirische spalte mit mapping von nummern zurück auf das ursprungliche String
+appaly_cats(panda_frame_validation_set,panda_frame_test_set) -- vergibt in validation set die selben keys(numbers) für den selben string wie in test data set
+proc_df(panda_fragem,'dependigVariable,zb SalesPrice') - 
+	-ersetzt kategories mit seinen numerical Werten,
+	-behadelt fehlede Werte - fehlende werte werden durch Median ersetzt und es gibt neue Spalte ColumnName_na(boolean) wo gesetz wird ob das Attribut initial leer war
+	-und verteilt die dependigVariable(SalesPrice) - etwas was wir predicten wollen-  in separaten DataFrame
+RandomForest
+	m=RandomForestRegressor(n_jobs=-1)
+	m.fit(panda_frame_categorical_and_Numerical,panda_frame_dependig_Variable)
+	m.score(panda_frame_categorical_and_Numerical,panda_frame_dependig_Variable)
+
+python
+%time - vor Funktion schreiben -gibt zurück wie lange hat eine Ausfühung gedauert zb: &time m.fit(panda_frame_categorical_and_Numerical,panda_frame_dependig_Variable)
+	
+-------
+jupyter
+-------
+schift + tab :kurze Doku zu funktion in popup
+schift + tab zwei mal hintereinander : längere Doku zu funktion in popup
+schift + tab dre mal hintereinander : lange Dokumentationim Fenster unten
+?funktion : lange Dokumentationim Fenster unten
+??funktion : source code for funktion
+Jvascript console -->netwokrt, copy as curl -> für download aus Internet über phyton
